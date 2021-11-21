@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2D;
 
     public bool isGrounded = false;
+    public BoxCollider2D groundCheck;
+    public bool dblJumpUsed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,11 @@ public class Player : MonoBehaviour
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * playerSpeed;
+        //Sets dblJumpUsed back to false once the player hits the ground
+        if(isGrounded)
+        {
+            dblJumpUsed = false;
+        }
     }
 
     void Jump()
@@ -31,5 +38,15 @@ public class Player : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
         }
+        if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false)
+        {
+            dblJumpUsed = true;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+        }
+    }
+
+    public void GroundCheck(bool grounded)
+    {
+        isGrounded = grounded;
     }
 }

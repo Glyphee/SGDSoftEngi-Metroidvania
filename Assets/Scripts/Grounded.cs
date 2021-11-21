@@ -4,32 +4,18 @@ using UnityEngine;
 
 public class Grounded : MonoBehaviour
 {
-    GameObject Character; 
-    // Start is called before the first frame update
-    void Start()
-    {
-       Character = gameObject.transform.parent.gameObject;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Platform")
+        if(collision.collider.CompareTag("Platform"))
         {
-            Character.GetComponent<Player>().isGrounded = true;
+            transform.parent.GetComponent<Player>().GroundCheck(true);
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Platform")
+        if (collision.collider.CompareTag("Platform"))
         {
-            Character.GetComponent<Player>().isGrounded = false;
+            transform.parent.GetComponent<Player>().GroundCheck(false);
         }
     }
 }
