@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         {
             dblJumpUsed = true;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            print("dbljumped");
         }
     }
 
