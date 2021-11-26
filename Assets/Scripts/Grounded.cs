@@ -9,6 +9,7 @@ public class Grounded : MonoBehaviour
         if(collision.collider.CompareTag("Platform"))
         {
             transform.parent.GetComponent<Player>().GroundCheck(true);
+            print("grounded");
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -16,6 +17,7 @@ public class Grounded : MonoBehaviour
         if (collision.collider.CompareTag("Platform"))
         {
             transform.parent.GetComponent<Player>().GroundCheck(false);
+            print("in air");
         }
     }
 }
