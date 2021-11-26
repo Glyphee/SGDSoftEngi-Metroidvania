@@ -9183,9 +9183,10 @@ GameObject:
   m_Component:
   - component: {fileID: 197098582}
   - component: {fileID: 197098581}
+  - component: {fileID: 197098583}
   m_Layer: 0
   m_Name: tileset-sliced_25
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9256,6 +9257,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 736
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &197098583
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197098580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15043145, y: 0.18187074, z: 0.2}
+  m_Center: {x: 0.018453414, y: -0.010935378, z: 0}
 --- !u!1 &198917486
 GameObject:
   m_ObjectHideFlags: 0
@@ -15062,9 +15076,10 @@ GameObject:
   m_Component:
   - component: {fileID: 340591652}
   - component: {fileID: 340591651}
+  - component: {fileID: 340591653}
   m_Layer: 0
   m_Name: tileset-sliced_25 (6)
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15135,6 +15150,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 848
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &340591653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340591650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20038, y: 0.18163224, z: 0.2}
+  m_Center: {x: -0.02595861, y: -0.010816124, z: 0}
 --- !u!1 &345836707
 GameObject:
   m_ObjectHideFlags: 0
@@ -20597,9 +20625,10 @@ GameObject:
   m_Component:
   - component: {fileID: 482381156}
   - component: {fileID: 482381155}
+  - component: {fileID: 482381157}
   m_Layer: 0
   m_Name: tileset-sliced_25 (7)
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20670,6 +20699,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 849
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &482381157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482381154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1580944, y: 0.18191636, z: 0.2}
+  m_Center: {x: -0.0047643664, y: -0.010958183, z: 0}
 --- !u!1 &485488447
 GameObject:
   m_ObjectHideFlags: 0
@@ -35581,9 +35623,10 @@ GameObject:
   m_Component:
   - component: {fileID: 775810924}
   - component: {fileID: 775810923}
+  - component: {fileID: 775810925}
   m_Layer: 0
   m_Name: tileset-sliced_25 (1)
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35654,6 +35697,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 737
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &775810925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775810922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19940606, y: 0.18187073, z: 0.2}
+  m_Center: {x: 0.0361063, y: -0.010935366, z: 0}
 --- !u!1 &779535187
 GameObject:
   m_ObjectHideFlags: 0
