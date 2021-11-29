@@ -6,17 +6,22 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float playerSpeed;
+    public Animator playerAnimator;
 
     private Rigidbody2D rb2D;
 
-    public bool isGrounded = false;
-    public BoxCollider2D groundCheck;
-    public bool dblJumpUsed = false;
+
+    [SerializeField] private bool isGrounded = false;
+    [SerializeField] public BoxCollider2D groundCheck;
+    [SerializeField] private bool dblJumpUsed = false;
+    [SerializeField] private bool facingRight = true;
+    public Vector3 playerScale;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        playerScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -30,6 +35,16 @@ public class Player : MonoBehaviour
         {
             dblJumpUsed = false;
         }
+        if (Input.GetKey("a") || Input.GetKey("d"))
+        {
+            playerAnimator.SetBool("isMoving", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isMoving", false);
+        }
+        //Detects movement direction
+        FlipSprite();
     }
 
     void Jump()
@@ -37,6 +52,7 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isGrounded == true)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            playerAnimator.SetBool("isJumping", true);
         }
         if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false)
         {
@@ -49,5 +65,18 @@ public class Player : MonoBehaviour
     public void GroundCheck(bool grounded)
     {
         isGrounded = grounded;
+    }
+
+    void FlipSprite()
+    {
+        if (Input.GetKeyDown("d"))
+        {
+            playerScale.x = 5;
+        }
+        else if (Input.GetKeyDown("a"))
+        {
+            playerScale.x = -5;
+        }
+        transform.localScale = playerScale;
     }
 }

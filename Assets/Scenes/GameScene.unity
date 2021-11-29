@@ -16737,6 +16737,7 @@ GameObject:
   - component: {fileID: 383017544}
   - component: {fileID: 383017543}
   - component: {fileID: 383017542}
+  - component: {fileID: 383017545}
   m_Layer: 0
   m_Name: Player_GO
   m_TagString: Untagged
@@ -16824,9 +16825,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 8
-  isGrounded: 1
+  playerAnimator: {fileID: 383017545}
+  isGrounded: 0
   groundCheck: {fileID: 2043881502}
   dblJumpUsed: 0
+  facingRight: 1
+  playerScale: {x: 0, y: 0, z: 0}
 --- !u!61 &383017543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16874,6 +16878,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &383017545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383017539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8611d6a43109cdb42bd41fdc62874cf8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &392142414
 GameObject:
   m_ObjectHideFlags: 0
@@ -91739,6 +91762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0149dd0e2a11489419a3bc939c0ae3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 383017545}
 --- !u!4 &2043881504
 Transform:
   m_ObjectHideFlags: 0

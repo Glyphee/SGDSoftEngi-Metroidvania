@@ -5,6 +5,8 @@ using UnityEngine;
 public class Grounded : MonoBehaviour
 {
     private int collisionCount = 0;
+    public Animator playerAnimator;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Platform"))
@@ -25,10 +27,13 @@ public class Grounded : MonoBehaviour
         if (collisionCount == 0)
         {
             transform.parent.GetComponent<Player>().GroundCheck(false);
+            playerAnimator.SetBool("isGrounded", false);
         }
         else
         {
             transform.parent.GetComponent<Player>().GroundCheck(true);
+            playerAnimator.SetBool("isGrounded", true);
+            playerAnimator.SetBool("isJumping", false);
         }
     }
 }
