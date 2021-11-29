@@ -7,14 +7,14 @@ public class Grounded : MonoBehaviour
     private int collisionCount = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Platform"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Platform"))
         {
             collisionCount++;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Platform"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Platform"))
         {
             collisionCount--;
         }
