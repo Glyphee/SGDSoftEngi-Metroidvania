@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class Grounded : MonoBehaviour
 {
+    private int collisionCount = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.CompareTag("Platform"))
+        if (collision.collider.CompareTag("Platform"))
         {
-            transform.parent.GetComponent<Player>().GroundCheck(true);
-            print("grounded");
+            collisionCount++;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Platform"))
         {
+            collisionCount--;
+        }
+    }
+
+    private void Update()
+    {
+        if (collisionCount == 0)
+        {
             transform.parent.GetComponent<Player>().GroundCheck(false);
-            print("in air");
+        }
+        else
+        {
+            transform.parent.GetComponent<Player>().GroundCheck(true);
         }
     }
 }
