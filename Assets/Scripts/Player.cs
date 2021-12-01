@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isGrounded = false;
     [SerializeField] public BoxCollider2D groundCheck;
     [SerializeField] private bool dblJumpUsed = false;
-    [SerializeField] private bool facingRight = true;
     [SerializeField] private float jumpForce = 6f;
     public Vector3 playerScale;
 
