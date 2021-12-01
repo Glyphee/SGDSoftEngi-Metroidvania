@@ -7,6 +7,9 @@ TagManager:
   - Hazard
   - Platform
   - Ground
+  - AbilityHead1
+  - AbilityHead2
+  - AbilityHead0
   layers:
   - Default
   - TransparentFX
