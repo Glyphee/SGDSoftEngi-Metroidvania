@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] public BoxCollider2D groundCheck;
     [SerializeField] private bool dblJumpUsed = false;
     [SerializeField] private bool facingRight = true;
+    [SerializeField] private float jumpForce = 6f;
     public Vector3 playerScale;
 
     // Start is called before the first frame update
@@ -51,13 +52,13 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump") && isGrounded == true)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             playerAnimator.SetBool("isJumping", true);
         }
         if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false)
         {
             dblJumpUsed = true;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             print("dbljumped");
         }
     }
