@@ -16365,7 +16365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f072832700ddbf649894270932c236b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 8
+  playerSpeed: 3
   playerAnimator: {fileID: 383017545}
   isGrounded: 0
   groundCheck: {fileID: 2043881502}
