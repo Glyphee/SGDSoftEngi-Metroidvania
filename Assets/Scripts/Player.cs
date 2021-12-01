@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb2D;
 
+    public GameObject gameOver;
+
+    private int playerHealth;
 
     [SerializeField] private bool isGrounded = false;
     [SerializeField] public BoxCollider2D groundCheck;
@@ -22,6 +26,7 @@ public class Player : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         playerScale = transform.localScale;
+        gameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,6 +52,14 @@ public class Player : MonoBehaviour
         FlipSprite();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water"))
+        {
+            gameOver.SetActive(true);
+        }
+    }
+
     void Jump()
     {
         if(Input.GetButtonDown("Jump") && isGrounded == true)
@@ -67,13 +80,27 @@ public class Player : MonoBehaviour
         isGrounded = grounded;
     }
 
+    void CheckForHealthPoints()
+    {
+        if (playerHealth <= 0)
+        {
+            gameOver.SetActive(true);
+        }
+    }
+
+    public void OnRestartButtonClick()
+    {
+        SceneManager.LoadScene("GameScene");
+        gameOver.SetActive(false);
+    }
+
     void FlipSprite()
     {
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow))
         {
             playerScale.x = 5;
         }
-        else if (Input.GetKeyDown("a"))
+        else if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             playerScale.x = -5;
         }
