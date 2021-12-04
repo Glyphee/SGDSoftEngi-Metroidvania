@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     public GameObject gameOver;
 
+    public Text healthText;
+
     private int playerHealth;
 
     [SerializeField] private bool isGrounded = false;
@@ -27,6 +29,8 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         playerScale = transform.localScale;
         gameOver.SetActive(false);
+        playerHealth = 10;
+        GameOver();
     }
 
     // Update is called once per frame
@@ -40,7 +44,7 @@ public class Player : MonoBehaviour
         {
             dblJumpUsed = false;
         }
-        if (Input.GetKey("a") || Input.GetKey("d"))
+        if (Input.GetKey("a") || Input.GetKey("d") || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             playerAnimator.SetBool("isMoving", true);
         }
@@ -105,5 +109,14 @@ public class Player : MonoBehaviour
             playerScale.x = -5;
         }
         transform.localScale = playerScale;
+    }
+
+    void GameOver()
+    {
+        healthText.text = "Health: " + playerHealth.ToString();
+        if (playerHealth <= 0)
+        {
+            gameOver.SetActive(true);
+        }
     }
 }
