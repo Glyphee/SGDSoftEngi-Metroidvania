@@ -10,6 +10,7 @@ TagManager:
   - AbilityHead1
   - AbilityHead2
   - AbilityHead0
+  - Water
   layers:
   - Default
   - TransparentFX
