@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     public GameObject gameOver;
     public GameObject unlockablesPanel;
     public Text unlockablesText;
-    public Text healthText;
 
     [SerializeField] private float playerSpeed;
     [SerializeField] private bool isGrounded = false;
@@ -22,8 +21,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 6f;
     [SerializeField] private Vector3 playerScale;
 
-    private int playerHealth;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +28,6 @@ public class Player : MonoBehaviour
         gameOver.SetActive(false);
         unlockablesPanel.SetActive(false);
         roadBlock.SetActive(true);
-        playerHealth = 10;
-        CheckForHealth();
     }
 
     // Update is called once per frame
@@ -84,11 +79,6 @@ public class Player : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Finish"))
-        {
-
-        }
-
-        if (other.gameObject.CompareTag(""))
         {
 
         }
@@ -147,18 +137,8 @@ public class Player : MonoBehaviour
         transform.localScale = playerScale;
     }
 
-    void CheckForHealth()
-    {
-        healthText.text = "Health: " + playerHealth.ToString();
-        if (playerHealth >= 0)
-        {
-            gameOver.SetActive(true);
-        }
-    }
-
     public void OnRestartButtonClick()
     {
-        playerHealth = 10;
         gameOver.SetActive(false);
         SceneManager.LoadScene("GameScene");
     }
