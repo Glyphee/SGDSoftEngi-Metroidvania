@@ -1611,7 +1611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &18815507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45456,7 +45456,7 @@ GameObject:
   - component: {fileID: 631288881}
   m_Layer: 0
   m_Name: gate-03 (3)
-  m_TagString: Finish
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57683,7 +57683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &796263342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69241,7 +69241,7 @@ MonoBehaviour:
   m_text: 'You found your way out of the cave, well done.
 
 
-    Try again?'
+    Play again?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
