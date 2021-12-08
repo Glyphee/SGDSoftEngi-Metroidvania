@@ -1,3 +1,10 @@
+//////////////////////////////////////////////
+//Assignment/Lab/Project: Metroidvania
+//Name: Malcolm Coronado, Noah Posey, Bryan Wolstromer
+//Section: 2021FA.SGD.285.
+//Instructor: Aurore Wold
+//Date: 11/10/2021
+/////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -135,16 +142,5 @@ public class Player : MonoBehaviour
             playerScale.x = -5;
         }
         transform.localScale = playerScale;
-    }
-
-    public void OnRestartButtonClick()
-    {
-        gameOver.SetActive(false);
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void OnExitGameButtonClick()
-    {
-        Application.Quit();
     }
 }

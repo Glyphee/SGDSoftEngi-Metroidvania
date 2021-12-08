@@ -12,12 +12,14 @@ public class BgMusic : MonoBehaviour
         Audio = GetComponent<AudioSource>();
     }
 
+    // Stops the background music
     public void Stop()
     {
         Audio = GetComponent<AudioSource>();
         Audio.Stop();
     }
 
+    // Plays the background music
     public void Play()
     {
         Audio = GetComponent<AudioSource>();
