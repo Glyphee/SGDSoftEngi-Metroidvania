@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public GameObject roadBlock;
     public GameObject gameOver;
     public GameObject unlockablesPanel;
+    public GameObject winScreen;
+
     public Text unlockablesText;
 
     [SerializeField] private float playerSpeed;
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
         gameOver.SetActive(false);
         unlockablesPanel.SetActive(false);
         roadBlock.SetActive(true);
+        winScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -78,9 +81,9 @@ public class Player : MonoBehaviour
             gameOver.SetActive(true);
         }
 
-        if (other.gameObject.CompareTag("Finish"))
+        if (other.gameObject.CompareTag("Goal"))
         {
-
+            winScreen.SetActive(true);
         }
 
         if (other.gameObject.CompareTag("AbilityHead0"))
@@ -140,6 +143,7 @@ public class Player : MonoBehaviour
     public void OnRestartButtonClick()
     {
         gameOver.SetActive(false);
+        winScreen.SetActive(false);
         SceneManager.LoadScene("GameScene");
     }
 

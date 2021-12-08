@@ -11,6 +11,7 @@ TagManager:
   - AbilityHead2
   - AbilityHead0
   - Water
+  - Goal
   layers:
   - Default
   - TransparentFX
