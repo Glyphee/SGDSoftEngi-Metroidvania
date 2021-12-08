@@ -8,13 +8,14 @@ public class Player : MonoBehaviour
 {
     public Animator playerAnimator;
     public BoxCollider2D groundCheck;
-
     public GameObject roadBlock;
     public GameObject gameOver;
     public GameObject unlockablesPanel;
     public GameObject winScreen;
-
     public Text unlockablesText;
+    public Transform wallGrabPoint;
+    public LayerMask whatIsGround;
+    public Rigidbody2D rb2D;
 
     [SerializeField] private float playerSpeed;
     [SerializeField] private bool isGrounded = false;
@@ -22,18 +23,22 @@ public class Player : MonoBehaviour
     [SerializeField] private bool dblJumpUnlocked = false;
     [SerializeField] private float jumpForce = 6f;
     [SerializeField] private Vector3 playerScale;
+    private bool canGrab, isGrabbing;
+    private float gravityStore;
+    private float wallJumpTime = .2f;
+    private float wallJumpCounter;
 
-    // Start is called before the first frame update
     void Start()
     {
+        gravityStore = rb2D.gravityScale;
         playerScale = transform.localScale;
+
         gameOver.SetActive(false);
         unlockablesPanel.SetActive(false);
         roadBlock.SetActive(true);
         winScreen.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Disables movement while the unlockables panel is set to true
@@ -60,6 +65,8 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("isMoving", false);
         }
+
+        WallJumping();
 
         //Detects movement direction
         FlipSprite();
@@ -107,7 +114,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Jump()
+    private void Jump()
     {
         if(Input.GetButtonDown("Jump") && isGrounded == true)
         {
@@ -127,7 +134,7 @@ public class Player : MonoBehaviour
         isGrounded = grounded;
     }
 
-    void FlipSprite()
+    private void FlipSprite()
     {
         if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -140,15 +147,30 @@ public class Player : MonoBehaviour
         transform.localScale = playerScale;
     }
 
-    public void OnRestartButtonClick()
+    private void WallJumping()
     {
-        gameOver.SetActive(false);
-        winScreen.SetActive(false);
-        SceneManager.LoadScene("GameScene");
-    }
+        canGrab = Physics2D.OverlapCircle(wallGrabPoint.position, .2f, whatIsGround);
 
-    public void OnExitGameButtonClick()
-    {
-        Application.Quit();
+        isGrabbing = false;
+
+        if (canGrab && !isGrounded)
+        {
+            if (playerScale.x == 5 && Input.GetAxisRaw("Horizontal") > 0 || playerScale.x == -5 && Input.GetAxisRaw("Horizontal") < 0)
+            {
+                isGrabbing = true;
+            }
+        }
+
+        if(isGrabbing)
+        {
+            rb2D.gravityScale = 0f;
+            rb2D.velocity = Vector2.zero;
+            isGrabbing = false;
+            dblJumpUsed = false;
+        }
+        else
+        {
+            rb2D.gravityScale = gravityStore;
+        }
     }
 }
