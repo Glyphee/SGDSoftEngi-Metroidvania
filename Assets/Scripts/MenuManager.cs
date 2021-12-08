@@ -1,6 +1,6 @@
 //////////////////////////////////////////////
 //Assignment/Lab/Project: Metroidvania
-//Name: Malcolm Coronado, Noah Posey, Bryan Matthew Wolstromer
+//Name: Malcolm Coronado, Noah Posey, Bryan Wolstromer
 //Section: 2021FA.SGD.285.
 //Instructor: Aurore Wold
 //Date: 11/10/2021
@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
     public GameObject creditsMenu;
     public GameObject controlsMenu;
 
+    // Makes sure the start menu appears when the player starts the game
     void Start()
     {
         startMenu.SetActive(true);
@@ -31,6 +32,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    // Returns to the start menu
     public void OnGoBackButtonClick()
     {
         startMenu.SetActive(true);
@@ -39,6 +41,7 @@ public class MenuManager : MonoBehaviour
         controlsMenu.SetActive(false);
     }
     
+    // Displays the controls menu
     public void OnControlsButtonClick()
     {
         startMenu.SetActive(false);
@@ -47,6 +50,7 @@ public class MenuManager : MonoBehaviour
         controlsMenu.SetActive(true);
     }
 
+    // Displays the credits menu
     public void OnCreditsButtonClick()
     {
         startMenu.SetActive(false);
@@ -55,6 +59,7 @@ public class MenuManager : MonoBehaviour
         controlsMenu.SetActive(false);
     }
 
+    // Displays the instructions menu
     public void OnInstructionsButtonClick()
     {
         startMenu.SetActive(false);

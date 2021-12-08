@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;//Needed to control slider on main menu
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
 
-    // Start is called before the first frame update
-    void Start()//Checks to see if any volume changes have been made to load
+    //Checks to see if any volume changes have been made to load
+    void Start()
     {
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
@@ -20,18 +20,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void ChangeVolume()//Controls volume slider
+    //Controls volume slider
+    public void ChangeVolume()
     {
-        AudioListener.volume = volumeSlider.value;//Value of sound is equal to value of current slider setting
+        //Value of sound is equal to value of current slider setting
+        AudioListener.volume = volumeSlider.value;
         Save();
     }
 
-    private void Load()//load volume setting between sessions
+    //load volume setting between sessions
+    private void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
-    private void Save()//Save volume settings between sessions
+    //Save volume settings between sessions
+    private void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
