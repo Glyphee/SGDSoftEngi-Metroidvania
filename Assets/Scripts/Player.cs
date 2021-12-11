@@ -25,8 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector3 playerScale;
     private bool canGrab, isGrabbing;
     private float gravityStore;
-    private float wallJumpTime = .2f;
-    private float wallJumpCounter;
+    [SerializeField] private bool wallJumpUnlocked = false;
 
     void Start()
     {
@@ -37,6 +36,9 @@ public class Player : MonoBehaviour
         unlockablesPanel.SetActive(false);
         roadBlock.SetActive(true);
         winScreen.SetActive(false);
+
+        dblJumpUnlocked = false;
+        wallJumpUnlocked = false;
     }
 
     void Update()
@@ -112,6 +114,16 @@ public class Player : MonoBehaviour
                 unlockablesText.text = "The path is now unblocked!";
             }
         }
+
+        if (other.gameObject.CompareTag("AbilityHead2"))
+        {
+            if (!wallJumpUnlocked)
+            {
+                wallJumpUnlocked = true;
+                unlockablesPanel.SetActive(true);
+                unlockablesText.text = "Congratulations! You unlocked wall jumping!";
+            }
+        }
     }
 
     private void Jump()
@@ -121,7 +133,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             playerAnimator.SetBool("isJumping", true);
         }
-        if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false && dblJumpUnlocked == true)
+        if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false && dblJumpUnlocked)
         {
             dblJumpUsed = true;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -153,7 +165,7 @@ public class Player : MonoBehaviour
 
         isGrabbing = false;
 
-        if (canGrab && !isGrounded)
+        if (canGrab && !isGrounded && wallJumpUnlocked)
         {
             if (playerScale.x == 5 && Input.GetAxisRaw("Horizontal") > 0 || playerScale.x == -5 && Input.GetAxisRaw("Horizontal") < 0)
             {
