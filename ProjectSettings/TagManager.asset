@@ -7,11 +7,16 @@ TagManager:
   - Hazard
   - Platform
   - Ground
+  - AbilityHead1
+  - AbilityHead2
+  - AbilityHead0
+  - Water
+  - Goal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
