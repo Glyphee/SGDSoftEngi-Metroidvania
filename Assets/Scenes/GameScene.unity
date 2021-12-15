@@ -61721,9 +61721,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
-<<<<<<< HEAD
->>>>>>> parent of 5192e54 (Game is theoretically beatable)
-=======
 >>>>>>> parent of 5192e54 (Game is theoretically beatable)
 --- !u!1 &1039865860
 GameObject:
