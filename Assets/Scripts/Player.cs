@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
 {
     public Animator playerAnimator;
     public BoxCollider2D groundCheck;
-    public GameObject roadBlock;
-    public GameObject gameOver;
-    public GameObject unlockablesPanel;
-    public GameObject winScreen;
-    public Text unlockablesText;
+
+    [SerializeField] GameObject roadBlock;
+    [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject unlockablesPanel;
+    [SerializeField] GameObject winScreen;
+
+    [SerializeField] Text unlockablesText;
+
     public Transform wallGrabPoint;
     public LayerMask whatIsGround;
     public Rigidbody2D rb2D;
