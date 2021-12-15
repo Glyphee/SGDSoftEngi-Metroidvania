@@ -8,14 +8,14 @@ public class Player : MonoBehaviour
 {
     public Animator playerAnimator;
     public BoxCollider2D groundCheck;
-    public GameObject roadBlock;
-    public GameObject gameOver;
-    public GameObject unlockablesPanel;
-    public GameObject winScreen;
-    public Text unlockablesText;
-    public Transform wallGrabPoint;
-    public LayerMask whatIsGround;
-    public Rigidbody2D rb2D;
+    //public GameObject roadBlock;
+    //public GameObject gameOver;
+    //public GameObject unlockablesPanel;
+    //public GameObject winScreen;
+    //public Text unlockablesText;
+    //public Transform wallGrabPoint;
+    //public LayerMask whatIsGround;
+    //public Rigidbody2D rb2D;
 
     [SerializeField] private float playerSpeed;
     [SerializeField] private bool isGrounded = false;
@@ -29,13 +29,13 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        gravityStore = rb2D.gravityScale;
+        //gravityStore = rb2D.gravityScale;
         playerScale = transform.localScale;
 
-        gameOver.SetActive(false);
-        unlockablesPanel.SetActive(false);
-        roadBlock.SetActive(true);
-        winScreen.SetActive(false);
+        //gameOver.SetActive(false);
+        //unlockablesPanel.SetActive(false);
+        //roadBlock.SetActive(true);
+        //winScreen.SetActive(false);
 
         dblJumpUnlocked = false;
         wallJumpUnlocked = false;
@@ -44,13 +44,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Disables movement while the unlockables panel is set to true
-        if (!unlockablesPanel.activeInHierarchy)
+        /*if (!unlockablesPanel.activeInHierarchy)
         {
             Jump();
 
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
             transform.position += movement * Time.deltaTime * playerSpeed;
-        }
+        }*/
 
         //Sets dblJumpUsed back to false once the player hits the ground
         if (isGrounded)
@@ -74,17 +74,17 @@ public class Player : MonoBehaviour
         FlipSprite();
 
         // Hides the unlockables panel by pressing enter
-        if (unlockablesPanel.activeInHierarchy)
+        /*if (unlockablesPanel.activeInHierarchy)
         {
             if(Input.GetKeyDown(KeyCode.Return))
             {
                 unlockablesPanel.SetActive(false);
             }
-        }
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D other)
-    {
+    {/*
         if (other.gameObject.CompareTag("Water"))
         {
             gameOver.SetActive(true);
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
                 unlockablesPanel.SetActive(true);
                 unlockablesText.text = "Congratulations! You unlocked wall jumping!";
             }
-        }
+        }*/
     }
 
     private void Jump()
@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
     }
 
     private void WallJumping()
-    {
+    {/*
         canGrab = Physics2D.OverlapCircle(wallGrabPoint.position, .2f, whatIsGround);
 
         isGrabbing = false;
@@ -183,6 +183,6 @@ public class Player : MonoBehaviour
         else
         {
             rb2D.gravityScale = gravityStore;
-        }
+        }*/
     }
 }
