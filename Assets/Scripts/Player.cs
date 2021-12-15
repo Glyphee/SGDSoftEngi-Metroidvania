@@ -25,13 +25,15 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector3 playerScale;
     private bool canGrab, isGrabbing;
     private float gravityStore;
-    [SerializeField] private bool wallJumpUnlocked = false;
+    private float wallJumpTime = .2f;
+    private float wallJumpCounter;
 
     void Start()
     {
         //gravityStore = rb2D.gravityScale;
         playerScale = transform.localScale;
 
+<<<<<<< HEAD
         //gameOver.SetActive(false);
         //unlockablesPanel.SetActive(false);
         //roadBlock.SetActive(true);
@@ -39,6 +41,12 @@ public class Player : MonoBehaviour
 
         dblJumpUnlocked = false;
         wallJumpUnlocked = false;
+=======
+        gameOver.SetActive(false);
+        unlockablesPanel.SetActive(false);
+        roadBlock.SetActive(true);
+        winScreen.SetActive(false);
+>>>>>>> parent of 5192e54 (Game is theoretically beatable)
     }
 
     void Update()
@@ -114,6 +122,7 @@ public class Player : MonoBehaviour
                 unlockablesText.text = "The path is now unblocked!";
             }
         }
+<<<<<<< HEAD
 
         if (other.gameObject.CompareTag("AbilityHead2"))
         {
@@ -124,6 +133,8 @@ public class Player : MonoBehaviour
                 unlockablesText.text = "Congratulations! You unlocked wall jumping!";
             }
         }*/
+=======
+>>>>>>> parent of 5192e54 (Game is theoretically beatable)
     }
 
     private void Jump()
@@ -133,7 +144,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             playerAnimator.SetBool("isJumping", true);
         }
-        if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false && dblJumpUnlocked)
+        if(Input.GetButtonDown("Jump") && isGrounded == false && dblJumpUsed == false && dblJumpUnlocked == true)
         {
             dblJumpUsed = true;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -165,7 +176,7 @@ public class Player : MonoBehaviour
 
         isGrabbing = false;
 
-        if (canGrab && !isGrounded && wallJumpUnlocked)
+        if (canGrab && !isGrounded)
         {
             if (playerScale.x == 5 && Input.GetAxisRaw("Horizontal") > 0 || playerScale.x == -5 && Input.GetAxisRaw("Horizontal") < 0)
             {
